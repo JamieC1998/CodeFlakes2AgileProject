@@ -32,14 +32,6 @@ blocks:
     task:
       jobs:
 
-      - name: JavaTest
-        commands:
-          - checkout
-          - cd "CI Basic Script"
-          - javac -target 1.4 main.java
-          - java main
-          - echo "make security"
-
       - name: RSpec
         commands:
           - checkout

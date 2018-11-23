@@ -35,9 +35,8 @@ blocks:
       - name: JavaTest
         commands:
           - checkout
-          - javac -target 1.4 -bootclasspath jdk1.4.2/lib/classes.zip \
-             -extdirs "" "CI Basic Script/main.java"
           - cd "CI Basic Script"
+          - javac -target 1.4 main.java
           - java main
 
       - name: RSpec

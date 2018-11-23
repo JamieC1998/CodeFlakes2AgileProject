@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//EoinWickens
 public class Main {
     private static Scanner kb = new Scanner(System.in);
     public static void main(String[] args) {
@@ -17,5 +17,4 @@ public class Main {
       add(1,2);
       subtract (5,4);
         }
-
 }

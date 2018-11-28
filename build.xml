@@ -1,0 +1,33 @@
+<project name="CodeFlakes2AgileProject" basedir="." default="Main">
+    <property name="dir.src"     value="src"/>
+    <property name="dir.build"   value="build"/>
+    <property name="dir.classes" value="${dir.build}/classes"/>
+    <property name="dir.jar"     value="${dir.build}/jar"/>
+
+    <property name="Main"  value="GUI.Main"/>
+
+    <target name="clean">
+        <delete dir="${dir.build}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${dir.classes}"/>
+        <javac srcdir="${dir.src}" destdir="${dir.classes}"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${dir.jar}"/>
+        <jar destfile="${dir.jar}/${ant.project.name}.jar" basedir="${dir.classes}">
+            <manifest>
+                <attribute name="Main-Class" value="${Main}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="${dir.jar}/${ant.project.name}.jar" fork="true"/>
+    </target>
+
+    <target name="clean-build" depends="clean,jar"/>
+    <target name="Main" depends="clean,run"/>
+</project>
